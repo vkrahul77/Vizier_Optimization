@@ -12,16 +12,16 @@ start_time = time.time()
 
 # Algorithm, search space, and metrics.
 study_config = vz.StudyConfig(algorithm='DEFAULT')
-study_config.search_space.root.add_float_param('Wx_inpmos_1', 0.25, 10)
-study_config.search_space.root.add_float_param('Lx_1', 0.13, 10)
-study_config.search_space.root.add_float_param('Lx_2', 0.13, 10)
-study_config.search_space.root.add_float_param('Wx_innmos_1', 0.25, 10)
+study_config.search_space.root.add_float_param('W', 5e-6, 0.6e-3)
+study_config.search_space.root.add_float_param('IB', 100e-6, 5e-3)
+study_config.search_space.root.add_float_param('Vov', 0.15, 0.500)
+
 study_config.metric_information.append(vz.MetricInformation('metric', goal=vz.ObjectiveMetricGoal.MINIMIZE))
 
 # Setup client and begin optimization. Vizier Service will be implicitly created.
 best_metric = float('inf') # Initialize to infinity to track metrics during "MINIMIZE" study.
 objective = {} # Initialize to empty dictionary to store the objective metric.
-study = clients.Study.from_study_config(study_config, owner='cyl', study_id='inverter_sizing_test')
+study = clients.Study.from_study_config(study_config, owner='cyl', study_id='CS_AMP_sizing_test')
 for i in range(10):
   # Generate suggestions
   suggestions = study.suggest(count=25)
@@ -33,7 +33,7 @@ for i in range(10):
   # Setup and run simulations via ngspice
   results = iterate(suggestions)
   # Evaluate results to get metrics
-  metrics = evaluate(results)
+  metrics = evaluate(results,suggestion.parameters)
 
   # Iterate through suggestions and metrics to complete them.
   inout = zip(suggestions, metrics)
