@@ -1,0 +1,27 @@
+
+v1 vdd 0 5
+v2 vg 0 dc 750e-3 ac 1
+v3 vb 0 2.5
+m1 vo vi 0 0 my_nmos w=$W l=$L
+rd vb vo 5k
+id vdd vo 496u
+CL vo 0 1p
+RS vi vg 10k
+
+.model my_nmos nmos level=1 vto=0.5 kp=50u lambda=0.1 ld=3u phi=0.6 gamma=0.5 cj=0.1e-3 cjsw=0.5e-3 mj=0.5 pb=0.95 cov=0.5e-3 Cox=2.3e-3
+.option brief
+.op
+.end
+
+.control
+
+set wr_singlescale
+set wr_vecnames
+
+
+save all
+*dc v2 0 5 0.01
+ac dec 10 1 100G
+display
+wrdata output.txt v(vo)
+.endc

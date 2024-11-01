@@ -1,0 +1,18 @@
+************** CS AMP Basic Optimization **********
+* Common-source amplifier
+
+.subckt CS_AMP vs vo 
+.model nch nmos level=1 vto=0.5 kp=50u tox=15n 
+
+
+.param rd= '2*$ib_1 /$ov_1 '
+
+vs   vs   0    ac  1 dc '0.5+$ov_2 '
+vb   vb   0    2.5
+ib   0    vo   $ib_2 rs   vs   vg   '2*rd'
+rd   vb   vo   'rd'
+m1   vo   vg   0  0  nch   w=$W_1 l=1u
+cl   vo   0    1e-12
+
+
+.ends

@@ -1,0 +1,601 @@
+**** DUT instance
+XIinverter_1 in out_1 Vsupply_1 VSS inverter_1 
+**** Give each inverter its own supply to monitor power usage
+Vsource_1 Vsupply_1 VSS 1.2
+
+.save i(Vsource_1) v(out_1)
+
+** Template formatted with W and L parameters
+** Additional identification index 1 also provided for multiple model instantiation
+
+.subckt inverter_1 in out vh vl
+
+Xmp out in vh vh sg13_lv_pmos W=0.25 L=5.331751973221176 ng=1 m=1
+Xmn out in vl vl sg13_lv_nmos W=10.0 L=10.0 ng=1 m=1
+
+.ends
+
+*************************************************************
+*************************************************************
+********************End Index 0******************************
+*************************************************************
+*************************************************************
+
+**** DUT instance
+XIinverter_2 in out_2 Vsupply_2 VSS inverter_2 
+**** Give each inverter its own supply to monitor power usage
+Vsource_2 Vsupply_2 VSS 1.2
+
+.save i(Vsource_2) v(out_2)
+
+** Template formatted with W and L parameters
+** Additional identification index 2 also provided for multiple model instantiation
+
+.subckt inverter_2 in out vh vl
+
+Xmp out in vh vh sg13_lv_pmos W=0.25 L=10.0 ng=1 m=1
+Xmn out in vl vl sg13_lv_nmos W=10.0 L=0.13 ng=1 m=1
+
+.ends
+
+*************************************************************
+*************************************************************
+********************End Index 1******************************
+*************************************************************
+*************************************************************
+
+**** DUT instance
+XIinverter_3 in out_3 Vsupply_3 VSS inverter_3 
+**** Give each inverter its own supply to monitor power usage
+Vsource_3 Vsupply_3 VSS 1.2
+
+.save i(Vsource_3) v(out_3)
+
+** Template formatted with W and L parameters
+** Additional identification index 3 also provided for multiple model instantiation
+
+.subckt inverter_3 in out vh vl
+
+Xmp out in vh vh sg13_lv_pmos W=10.0 L=10.0 ng=1 m=1
+Xmn out in vl vl sg13_lv_nmos W=10.0 L=10.0 ng=1 m=1
+
+.ends
+
+*************************************************************
+*************************************************************
+********************End Index 2******************************
+*************************************************************
+*************************************************************
+
+**** DUT instance
+XIinverter_4 in out_4 Vsupply_4 VSS inverter_4 
+**** Give each inverter its own supply to monitor power usage
+Vsource_4 Vsupply_4 VSS 1.2
+
+.save i(Vsource_4) v(out_4)
+
+** Template formatted with W and L parameters
+** Additional identification index 4 also provided for multiple model instantiation
+
+.subckt inverter_4 in out vh vl
+
+Xmp out in vh vh sg13_lv_pmos W=10.0 L=10.0 ng=1 m=1
+Xmn out in vl vl sg13_lv_nmos W=0.25 L=0.13 ng=1 m=1
+
+.ends
+
+*************************************************************
+*************************************************************
+********************End Index 3******************************
+*************************************************************
+*************************************************************
+
+**** DUT instance
+XIinverter_5 in out_5 Vsupply_5 VSS inverter_5 
+**** Give each inverter its own supply to monitor power usage
+Vsource_5 Vsupply_5 VSS 1.2
+
+.save i(Vsource_5) v(out_5)
+
+** Template formatted with W and L parameters
+** Additional identification index 5 also provided for multiple model instantiation
+
+.subckt inverter_5 in out vh vl
+
+Xmp out in vh vh sg13_lv_pmos W=0.25 L=0.13 ng=1 m=1
+Xmn out in vl vl sg13_lv_nmos W=9.999999999999991 L=0.13 ng=1 m=1
+
+.ends
+
+*************************************************************
+*************************************************************
+********************End Index 4******************************
+*************************************************************
+*************************************************************
+
+**** DUT instance
+XIinverter_6 in out_6 Vsupply_6 VSS inverter_6 
+**** Give each inverter its own supply to monitor power usage
+Vsource_6 Vsupply_6 VSS 1.2
+
+.save i(Vsource_6) v(out_6)
+
+** Template formatted with W and L parameters
+** Additional identification index 6 also provided for multiple model instantiation
+
+.subckt inverter_6 in out vh vl
+
+Xmp out in vh vh sg13_lv_pmos W=0.25 L=9.999999999999982 ng=1 m=1
+Xmn out in vl vl sg13_lv_nmos W=0.25 L=0.13 ng=1 m=1
+
+.ends
+
+*************************************************************
+*************************************************************
+********************End Index 5******************************
+*************************************************************
+*************************************************************
+
+**** DUT instance
+XIinverter_7 in out_7 Vsupply_7 VSS inverter_7 
+**** Give each inverter its own supply to monitor power usage
+Vsource_7 Vsupply_7 VSS 1.2
+
+.save i(Vsource_7) v(out_7)
+
+** Template formatted with W and L parameters
+** Additional identification index 7 also provided for multiple model instantiation
+
+.subckt inverter_7 in out vh vl
+
+Xmp out in vh vh sg13_lv_pmos W=0.25 L=0.13 ng=1 m=1
+Xmn out in vl vl sg13_lv_nmos W=10.0 L=10.0 ng=1 m=1
+
+.ends
+
+*************************************************************
+*************************************************************
+********************End Index 6******************************
+*************************************************************
+*************************************************************
+
+**** DUT instance
+XIinverter_8 in out_8 Vsupply_8 VSS inverter_8 
+**** Give each inverter its own supply to monitor power usage
+Vsource_8 Vsupply_8 VSS 1.2
+
+.save i(Vsource_8) v(out_8)
+
+** Template formatted with W and L parameters
+** Additional identification index 8 also provided for multiple model instantiation
+
+.subckt inverter_8 in out vh vl
+
+Xmp out in vh vh sg13_lv_pmos W=10.0 L=10.0 ng=1 m=1
+Xmn out in vl vl sg13_lv_nmos W=10.0 L=0.13 ng=1 m=1
+
+.ends
+
+*************************************************************
+*************************************************************
+********************End Index 7******************************
+*************************************************************
+*************************************************************
+
+**** DUT instance
+XIinverter_9 in out_9 Vsupply_9 VSS inverter_9 
+**** Give each inverter its own supply to monitor power usage
+Vsource_9 Vsupply_9 VSS 1.2
+
+.save i(Vsource_9) v(out_9)
+
+** Template formatted with W and L parameters
+** Additional identification index 9 also provided for multiple model instantiation
+
+.subckt inverter_9 in out vh vl
+
+Xmp out in vh vh sg13_lv_pmos W=0.25 L=9.999999999999991 ng=1 m=1
+Xmn out in vl vl sg13_lv_nmos W=9.999999999999991 L=9.999999999999991 ng=1 m=1
+
+.ends
+
+*************************************************************
+*************************************************************
+********************End Index 8******************************
+*************************************************************
+*************************************************************
+
+**** DUT instance
+XIinverter_10 in out_10 Vsupply_10 VSS inverter_10 
+**** Give each inverter its own supply to monitor power usage
+Vsource_10 Vsupply_10 VSS 1.2
+
+.save i(Vsource_10) v(out_10)
+
+** Template formatted with W and L parameters
+** Additional identification index 10 also provided for multiple model instantiation
+
+.subckt inverter_10 in out vh vl
+
+Xmp out in vh vh sg13_lv_pmos W=9.999999999999982 L=9.999999999999982 ng=1 m=1
+Xmn out in vl vl sg13_lv_nmos W=0.25 L=9.999999999999982 ng=1 m=1
+
+.ends
+
+*************************************************************
+*************************************************************
+********************End Index 9******************************
+*************************************************************
+*************************************************************
+
+**** DUT instance
+XIinverter_11 in out_11 Vsupply_11 VSS inverter_11 
+**** Give each inverter its own supply to monitor power usage
+Vsource_11 Vsupply_11 VSS 1.2
+
+.save i(Vsource_11) v(out_11)
+
+** Template formatted with W and L parameters
+** Additional identification index 11 also provided for multiple model instantiation
+
+.subckt inverter_11 in out vh vl
+
+Xmp out in vh vh sg13_lv_pmos W=8.112744224747516 L=0.13000000000000034 ng=1 m=1
+Xmn out in vl vl sg13_lv_nmos W=0.25 L=4.4514877302965985 ng=1 m=1
+
+.ends
+
+*************************************************************
+*************************************************************
+********************End Index 10******************************
+*************************************************************
+*************************************************************
+
+**** DUT instance
+XIinverter_12 in out_12 Vsupply_12 VSS inverter_12 
+**** Give each inverter its own supply to monitor power usage
+Vsource_12 Vsupply_12 VSS 1.2
+
+.save i(Vsource_12) v(out_12)
+
+** Template formatted with W and L parameters
+** Additional identification index 12 also provided for multiple model instantiation
+
+.subckt inverter_12 in out vh vl
+
+Xmp out in vh vh sg13_lv_pmos W=0.25 L=5.117450755391242 ng=1 m=1
+Xmn out in vl vl sg13_lv_nmos W=0.25 L=10.0 ng=1 m=1
+
+.ends
+
+*************************************************************
+*************************************************************
+********************End Index 11******************************
+*************************************************************
+*************************************************************
+
+**** DUT instance
+XIinverter_13 in out_13 Vsupply_13 VSS inverter_13 
+**** Give each inverter its own supply to monitor power usage
+Vsource_13 Vsupply_13 VSS 1.2
+
+.save i(Vsource_13) v(out_13)
+
+** Template formatted with W and L parameters
+** Additional identification index 13 also provided for multiple model instantiation
+
+.subckt inverter_13 in out vh vl
+
+Xmp out in vh vh sg13_lv_pmos W=0.25 L=0.13 ng=1 m=1
+Xmn out in vl vl sg13_lv_nmos W=0.25 L=10.0 ng=1 m=1
+
+.ends
+
+*************************************************************
+*************************************************************
+********************End Index 12******************************
+*************************************************************
+*************************************************************
+
+**** DUT instance
+XIinverter_14 in out_14 Vsupply_14 VSS inverter_14 
+**** Give each inverter its own supply to monitor power usage
+Vsource_14 Vsupply_14 VSS 1.2
+
+.save i(Vsource_14) v(out_14)
+
+** Template formatted with W and L parameters
+** Additional identification index 14 also provided for multiple model instantiation
+
+.subckt inverter_14 in out vh vl
+
+Xmp out in vh vh sg13_lv_pmos W=0.25 L=10.0 ng=1 m=1
+Xmn out in vl vl sg13_lv_nmos W=10.0 L=0.13 ng=1 m=1
+
+.ends
+
+*************************************************************
+*************************************************************
+********************End Index 13******************************
+*************************************************************
+*************************************************************
+
+**** DUT instance
+XIinverter_15 in out_15 Vsupply_15 VSS inverter_15 
+**** Give each inverter its own supply to monitor power usage
+Vsource_15 Vsupply_15 VSS 1.2
+
+.save i(Vsource_15) v(out_15)
+
+** Template formatted with W and L parameters
+** Additional identification index 15 also provided for multiple model instantiation
+
+.subckt inverter_15 in out vh vl
+
+Xmp out in vh vh sg13_lv_pmos W=8.1195654345801 L=0.13 ng=1 m=1
+Xmn out in vl vl sg13_lv_nmos W=0.25 L=4.449667527034647 ng=1 m=1
+
+.ends
+
+*************************************************************
+*************************************************************
+********************End Index 14******************************
+*************************************************************
+*************************************************************
+
+**** DUT instance
+XIinverter_16 in out_16 Vsupply_16 VSS inverter_16 
+**** Give each inverter its own supply to monitor power usage
+Vsource_16 Vsupply_16 VSS 1.2
+
+.save i(Vsource_16) v(out_16)
+
+** Template formatted with W and L parameters
+** Additional identification index 16 also provided for multiple model instantiation
+
+.subckt inverter_16 in out vh vl
+
+Xmp out in vh vh sg13_lv_pmos W=10.0 L=10.0 ng=1 m=1
+Xmn out in vl vl sg13_lv_nmos W=10.0 L=10.0 ng=1 m=1
+
+.ends
+
+*************************************************************
+*************************************************************
+********************End Index 15******************************
+*************************************************************
+*************************************************************
+
+**** DUT instance
+XIinverter_17 in out_17 Vsupply_17 VSS inverter_17 
+**** Give each inverter its own supply to monitor power usage
+Vsource_17 Vsupply_17 VSS 1.2
+
+.save i(Vsource_17) v(out_17)
+
+** Template formatted with W and L parameters
+** Additional identification index 17 also provided for multiple model instantiation
+
+.subckt inverter_17 in out vh vl
+
+Xmp out in vh vh sg13_lv_pmos W=8.124776102162116 L=0.13 ng=1 m=1
+Xmn out in vl vl sg13_lv_nmos W=0.25 L=4.451321891381951 ng=1 m=1
+
+.ends
+
+*************************************************************
+*************************************************************
+********************End Index 16******************************
+*************************************************************
+*************************************************************
+
+**** DUT instance
+XIinverter_18 in out_18 Vsupply_18 VSS inverter_18 
+**** Give each inverter its own supply to monitor power usage
+Vsource_18 Vsupply_18 VSS 1.2
+
+.save i(Vsource_18) v(out_18)
+
+** Template formatted with W and L parameters
+** Additional identification index 18 also provided for multiple model instantiation
+
+.subckt inverter_18 in out vh vl
+
+Xmp out in vh vh sg13_lv_pmos W=0.25 L=10.0 ng=1 m=1
+Xmn out in vl vl sg13_lv_nmos W=0.25 L=10.0 ng=1 m=1
+
+.ends
+
+*************************************************************
+*************************************************************
+********************End Index 17******************************
+*************************************************************
+*************************************************************
+
+**** DUT instance
+XIinverter_19 in out_19 Vsupply_19 VSS inverter_19 
+**** Give each inverter its own supply to monitor power usage
+Vsource_19 Vsupply_19 VSS 1.2
+
+.save i(Vsource_19) v(out_19)
+
+** Template formatted with W and L parameters
+** Additional identification index 19 also provided for multiple model instantiation
+
+.subckt inverter_19 in out vh vl
+
+Xmp out in vh vh sg13_lv_pmos W=10.0 L=10.0 ng=1 m=1
+Xmn out in vl vl sg13_lv_nmos W=0.25 L=0.13 ng=1 m=1
+
+.ends
+
+*************************************************************
+*************************************************************
+********************End Index 18******************************
+*************************************************************
+*************************************************************
+
+**** DUT instance
+XIinverter_20 in out_20 Vsupply_20 VSS inverter_20 
+**** Give each inverter its own supply to monitor power usage
+Vsource_20 Vsupply_20 VSS 1.2
+
+.save i(Vsource_20) v(out_20)
+
+** Template formatted with W and L parameters
+** Additional identification index 20 also provided for multiple model instantiation
+
+.subckt inverter_20 in out vh vl
+
+Xmp out in vh vh sg13_lv_pmos W=0.25 L=0.13 ng=1 m=1
+Xmn out in vl vl sg13_lv_nmos W=10.0 L=10.0 ng=1 m=1
+
+.ends
+
+*************************************************************
+*************************************************************
+********************End Index 19******************************
+*************************************************************
+*************************************************************
+
+**** DUT instance
+XIinverter_21 in out_21 Vsupply_21 VSS inverter_21 
+**** Give each inverter its own supply to monitor power usage
+Vsource_21 Vsupply_21 VSS 1.2
+
+.save i(Vsource_21) v(out_21)
+
+** Template formatted with W and L parameters
+** Additional identification index 21 also provided for multiple model instantiation
+
+.subckt inverter_21 in out vh vl
+
+Xmp out in vh vh sg13_lv_pmos W=0.25 L=10.0 ng=1 m=1
+Xmn out in vl vl sg13_lv_nmos W=0.25 L=0.13 ng=1 m=1
+
+.ends
+
+*************************************************************
+*************************************************************
+********************End Index 20******************************
+*************************************************************
+*************************************************************
+
+**** DUT instance
+XIinverter_22 in out_22 Vsupply_22 VSS inverter_22 
+**** Give each inverter its own supply to monitor power usage
+Vsource_22 Vsupply_22 VSS 1.2
+
+.save i(Vsource_22) v(out_22)
+
+** Template formatted with W and L parameters
+** Additional identification index 22 also provided for multiple model instantiation
+
+.subckt inverter_22 in out vh vl
+
+Xmp out in vh vh sg13_lv_pmos W=8.124571167939067 L=0.13 ng=1 m=1
+Xmn out in vl vl sg13_lv_nmos W=0.25 L=4.4500206300183205 ng=1 m=1
+
+.ends
+
+*************************************************************
+*************************************************************
+********************End Index 21******************************
+*************************************************************
+*************************************************************
+
+**** DUT instance
+XIinverter_23 in out_23 Vsupply_23 VSS inverter_23 
+**** Give each inverter its own supply to monitor power usage
+Vsource_23 Vsupply_23 VSS 1.2
+
+.save i(Vsource_23) v(out_23)
+
+** Template formatted with W and L parameters
+** Additional identification index 23 also provided for multiple model instantiation
+
+.subckt inverter_23 in out vh vl
+
+Xmp out in vh vh sg13_lv_pmos W=9.999999999999991 L=9.999999999999991 ng=1 m=1
+Xmn out in vl vl sg13_lv_nmos W=9.999999999999991 L=0.13 ng=1 m=1
+
+.ends
+
+*************************************************************
+*************************************************************
+********************End Index 22******************************
+*************************************************************
+*************************************************************
+
+**** DUT instance
+XIinverter_24 in out_24 Vsupply_24 VSS inverter_24 
+**** Give each inverter its own supply to monitor power usage
+Vsource_24 Vsupply_24 VSS 1.2
+
+.save i(Vsource_24) v(out_24)
+
+** Template formatted with W and L parameters
+** Additional identification index 24 also provided for multiple model instantiation
+
+.subckt inverter_24 in out vh vl
+
+Xmp out in vh vh sg13_lv_pmos W=9.999999999999991 L=9.999999999999991 ng=1 m=1
+Xmn out in vl vl sg13_lv_nmos W=0.25 L=9.999999999999991 ng=1 m=1
+
+.ends
+
+*************************************************************
+*************************************************************
+********************End Index 23******************************
+*************************************************************
+*************************************************************
+
+**** DUT instance
+XIinverter_25 in out_25 Vsupply_25 VSS inverter_25 
+**** Give each inverter its own supply to monitor power usage
+Vsource_25 Vsupply_25 VSS 1.2
+
+.save i(Vsource_25) v(out_25)
+
+** Template formatted with W and L parameters
+** Additional identification index 25 also provided for multiple model instantiation
+
+.subckt inverter_25 in out vh vl
+
+Xmp out in vh vh sg13_lv_pmos W=0.25 L=9.999999999999982 ng=1 m=1
+Xmn out in vl vl sg13_lv_nmos W=9.999999999999982 L=0.13 ng=1 m=1
+
+.ends
+
+*************************************************************
+*************************************************************
+********************End Index 24******************************
+*************************************************************
+*************************************************************
+
+**** Input sources
+Vscm        in VSS dc 0.6
+
+**** Supply sources
+Vsvdd VDD GND dc 1.2
+Vsvss VSS GND dc 0
+
+.lib /foss/pdks/sg13g2/libs.tech/ngspice/models/cornerMOSlv.lib mos_tt
+
+.options temp=27
+.options method=gear
+.GLOBAL VDD VSS
+
+** .save all
+
+.control
+set wr_vecnames
+** ac dec 100 1k 1T
+
+** tran 100p 5u
+** write OpAmp_Optimization/simulations/output.raw all
+
+op
+wrdata OpAmp_Optimization/simulations/output.txt all
+
+.endc

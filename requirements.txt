@@ -1,0 +1,49 @@
+# From https://github.com/google/vizier/blob/main/requirements.txt
+attrs==23.1.0
+absl-py>=1.0.0
+numpy>=1.21.5,<2.0  # TODO(team): Upgrade to 2.0.0 once TFP is fixed.
+protobuf>=3.6
+portpicker>=1.3.1
+grpcio>=1.35.0
+grpcio-tools>=1.35.0
+googleapis-common-protos>=1.56.4
+sqlalchemy>=1.4
+
+google-vizier[jax]
+
+# Optional Jax library. From https://github.com/google/vizier/blob/main/requirements-jax.txt
+# jax>=0.4.26 # Current version does not support jax.core.pp_eqn_rules
+jax==0.4.26
+# jaxlib>=0.4.26
+jaxlib==0.4.26 # Match with jax version
+jaxopt>=0.8.3
+flax>=0.8.2
+optax>=0.2.2
+chex>=0.1.86
+tfp-nightly[jax]
+equinox==0.11.3
+jaxtyping>=0.2.28
+typeguard<=2.13.3
+
+pandas>=1.3.3 # Used for data extraction from spice output - 2.2.3 used in this code
+# numpy>=1.21.5 # Used for data extraction from spice output - 1.21.5 used in this code
+matplotlib>=3.4.3 # Used for plotting - 3.4.3 used in this code
+scipy>=1.7.3 # Used for data extraction from spice output - 1.7.3 used in this code
+scikit-learn>=0.24.2 # Used for data extraction from spice output - 0.24.2 used in this code
+cvxopt>=1.2.6 # Used for data extraction from spice output - 1.2.6 used in this code
+lxml>=4.6.3 # Used for data extraction from spice output - 4.6.3 used in this code
+cvxpy>=1.1.15 # Used for data extraction from spice output - 1.1.15 used in this code
+mpi4py>=3.1.0 # Used for data extraction from spice output - 3.1.0 used in this code
+pyqt5>=5.15.4 # Used for data extraction from spice output - 5.15.4 used in this code
+pyqtgraph>=0.12.2 # Used for data extraction from spice output - 0.12.2 used in this code
+
+
+
+# Keep in mind...
+# ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+# pyopus 0.11 requires cvxopt, which is not installed.
+# pyopus 0.11 requires lxml, which is not installed.
+# pyopus 0.11 requires matplotlib, which is not installed.
+# pyopus 0.11 requires mpi4py, which is not installed.
+# pyopus 0.11 requires pyqt5, which is not installed.
+# pyopus 0.11 requires pyqtgraph, which is not installed.

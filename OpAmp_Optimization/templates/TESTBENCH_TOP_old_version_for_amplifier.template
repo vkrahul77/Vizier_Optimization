@@ -1,0 +1,43 @@
+**** Input sources
+Vin_plus    inp vcm dc $V_input_plus ac 0.5
+Vin_minus   inn vcm dc $V_input_minus ac -0.5
+Vscm        vcm VSS dc $V_common_mode
+
+**** Clock sources - pulse(start, stop, delay, rise, fall, width, period)
+** Vckrst  ckrst   VSS dc 0                    pulse(0, 1.2, 0, 1p, 1p, 10u, 20u )
+** Vckrstb ckrstb  VSS dc $V_supply_voltage    pulse(1.2, 0, 0, 1p, 1p, 10u, 20u )
+*** Clock stimulus
+Vphi1 phi1 GND dc 1.2 pulse(0, 1.2, 0u, 1000p, 1000p, 4.998u, 10u )
+Vphi2 phi2 GND dc 0 pulse(0, 1.2, 5u, 1000p, 1000p, 4.998u, 10u )
+
+**** Supply sources
+Vsvdd VDD GND dc $V_supply_voltage
+Vsvss VSS GND dc 0
+
+** Switch Macro - Contains 4 switches and a sampling capacitor
+.subckt mod_switch in out ref phi1 phi2 C_VALUE=1e-12
+Cs netcin netcout {C_VALUE}
+sin  netcin  in  phi1 GND switch1 ON
+sc0  netcin  ref phi2 GND switch1 OFF
+sout netcout out phi2 GND switch1 OFF
+sc1  netcout ref phi1 GND switch1 ON
+scvg out ref phi1 GND switch1 ON
+.ends
+
+.model switch1 sw vt=0.55 vh=0.2 ron=50 roff=1e9
+
+.lib /foss/pdks/sg13g2/libs.tech/ngspice/models/cornerMOSlv.lib mos_tt
+
+.options temp=27
+.options method=gear
+.GLOBAL VDD VSS
+
+.save all
+
+.control
+set wr_vecnames
+** ac dec 100 1k 1T
+** tran 100p 15u
+op
+write simulations/output.raw all
+.endc

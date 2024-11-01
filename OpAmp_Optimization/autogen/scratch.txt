@@ -1,0 +1,9 @@
+** Template formatted with W and L parameters
+** Additional identification index $index also provided for multiple model instantiation
+
+.subckt inverter_$index in out vh vl
+
+Xmp out in vh vh sg13_lv_pmos W=$Wx_inpmos_1 L=$Lx_1 ng=1 m=1
+Xmn out in vl vl sg13_lv_nmos W=$Wx_innmos_1 L=$Lx_2 ng=1 m=1
+
+.ends

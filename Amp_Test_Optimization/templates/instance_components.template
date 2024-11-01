@@ -1,0 +1,6 @@
+**** DUT instance
+XIinverter_$index in out_$index Vsupply_$index VSS inverter_$index 
+**** Give each inverter its own supply to monitor power usage
+Vsource_$index Vsupply_$index VSS 1.2
+
+.save i(Vsource_$index) v(out_$index)

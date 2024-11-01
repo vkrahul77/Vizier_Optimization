@@ -1,0 +1,26 @@
+**** Input sources
+Vscm        in VSS dc $V_common_mode
+
+**** Supply sources
+Vsvdd VDD GND dc $V_supply_voltage
+Vsvss VSS GND dc 0
+
+.lib /foss/pdks/sg13g2/libs.tech/ngspice/models/cornerMOSlv.lib mos_tt
+
+.options temp=27
+.options method=gear
+.GLOBAL VDD VSS
+
+** .save all
+
+.control
+set wr_vecnames
+** ac dec 100 1k 1T
+
+** tran 100p 5u
+** write OpAmp_Optimization/simulations/output.raw all
+
+op
+wrdata OpAmp_Optimization/simulations/output.txt all
+
+.endc

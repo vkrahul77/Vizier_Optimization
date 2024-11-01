@@ -1,0 +1,18 @@
+**** Current source
+Ibias_$index VDD ibias10u_$index dc 10u
+
+**** DUT instance
+** XIramp_$index vgp_$index vgn_$index outp_$index outn_$index VDD VSS ibias10u_$index vcm ramp_$index
+XIramp_$index inp inn outp_$index outn_$index VDD VSS ibias10u_$index vcm ramp_$index 
+
+**** Removing for DC OP Analysis
+**** Switch Network
+** Cop_$index outp_$index VSS 1p
+** Con_$index outn_$index VSS 1p
+
+**** Removing for DC OP Analysis
+*** Switch macros - Ports: in out ref phi1 phi2
+** xswitched_cap_plus_$index inp vgp_$index vcm phi1 phi2 mod_switch C_VALUE=2p
+** xswitched_cap_minus_$index inn vgn_$index vcm phi1 phi2 mod_switch C_VALUE=2p
+** Cfbp_$index vgn_$index outp_$index 0.5p
+** Cfbn_$index vgp_$index outn_$index 0.5p

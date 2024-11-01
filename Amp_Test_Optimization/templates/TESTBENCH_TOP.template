@@ -1,0 +1,21 @@
+**** Input sources
+.options temp=27
+.options method=gear
+*.GLOBAL VDD VSS
+
+** .save all
+XCSamp vs vo CS_AMP 
+.control
+set ngbehavior=hs
+set wr_singlescale
+set wr_vecnames
+set wr_vecnames
+ac dec 10 1 10G
+
+save all
+meas ac GAIN find vm(vo) at=10
+meas ac freq_3db when vm(vo) =2.82
+print gain > Amp_Test_Optimization/simulations/output.txt
+print freq_3db >> Amp_Test_Optimization/simulations/output.txt
+
+.endc

@@ -1,0 +1,8 @@
+{
+    "parameters" : {
+        "V_supply_voltage"  : "1.2",
+        "V_common_mode"     : "0.6",
+        "V_input_plus"      : "0.00",
+        "V_input_minus"     : "-0.00"
+    }
+}

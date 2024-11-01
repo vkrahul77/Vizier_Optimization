@@ -1,0 +1,76 @@
+** Differential amplifier
+** Template specially formatted with W and L parameters
+** Additional identification index $index also provided for multiple model instantiation
+
+.subckt ramp_$index inp inn outp outn VDD VSS ibias50u vcm
+
+**** Stage 1
+** Input devices - Stage 1
+** Input stage (CMOS Input) - MOS connections: D G S B
+Xmp_input_plus o1n inp vxp VDD sg13_lv_pmos W=$Wx_inpmos L=$Lx ng=1 m=1
+Xmn_input_plus o1n inp vxn VSS sg13_lv_nmos W=$Wx_innmos L=$Lx ng=1 m=1
+Xmp_input_minus o1p inn vxp VDD sg13_lv_pmos W=$Wx_inpmos L=$Lx ng=1 m=1
+Xmn_input_minus o1p inn vxn VSS sg13_lv_nmos W=$Wx_innmos L=$Lx ng=1 m=1
+
+** Current source
+Xmp_ibias vxp vcmfb VDD VDD sg13_lv_pmos W=$Wx_ibias_pmos L=$Lx ng=1 m=1
+Xmn_ibias vxn vbntail VSS VSS sg13_lv_nmos W=$Wx_ibias_nmos L=$Lx ng=1 m=1
+
+** Output CMFB resistors
+Rcmfbp vcmfb o1p 10e6
+Rcmfbn vcmfb o1n 10e6
+
+**** Other pieces
+** Bias mirror
+Xmn_ibias_srcmirror vdnbias vbntail VSS VSS sg13_lv_nmos W=$Wx_ibias_nmos L=$Lx ng=1 m=1
+Xmn_ibias_srccas vbntail vcm vdnbias VSS sg13_lv_nmos W=$Wx_innmos L=$Lx ng=1 m=1
+
+** Shorting resistor from ibias50u to vbntail
+Rcurrentbiasinput ibias50u vbntail 1
+
+
+**** Stage 2
+** Input devices - Stage 2
+** Input stage (CMOS Input) - MOS connections: D G S B
+Xmp_s2input_plus o2n o1p vxp2 VDD sg13_lv_pmos W=$Wx_inpmos L=$Lx ng=1 m=1
+Xmn_s2input_plus o2n o1p vxn2 VSS sg13_lv_nmos W=$Wx_innmos L=$Lx ng=1 m=1
+Xmp_s2input_minus o2p o1n vxp2 VDD sg13_lv_pmos W=$Wx_inpmos L=$Lx ng=1 m=1
+Xmn_s2input_minus o2p o1n vxn2 VSS sg13_lv_nmos W=$Wx_innmos L=$Lx ng=1 m=1
+
+** Current source
+Xmp_s2ibias vxp2 vcmfb2 VDD VDD sg13_lv_pmos W=$Wx_ibias_pmos L=$Lx ng=1 m=1
+Xmn_s2ibias vxn2 vbntail VSS VSS sg13_lv_nmos W=$Wx_ibias_nmos L=$Lx ng=1 m=1
+
+** Output CMFB resistors
+Rs2cmfbp vcmfb2 o2p 10e6
+Rs2cmfbn vcmfb2 o2n 10e6
+
+
+**** Stage 3
+** Output devices
+** Xmp_output_plus outn o2p VDD VDD sg13_lv_pmos W=$Wx_opmos L=$Lx ng=1 m=1
+** Xmn_output_plus outn o2p VSS VSS sg13_lv_nmos W=$Wx_onmos L=$Lx ng=1 m=1
+** Xmp_output_minus outp o2n VDD VDD sg13_lv_pmos W=$Wx_opmos L=$Lx ng=1 m=1
+** Xmn_output_minus outp o2n VSS VSS sg13_lv_nmos W=$Wx_onmos L=$Lx ng=1 m=1
+
+** Alternative design - two halves
+** Top half (pmos tail)
+Xmptop_tail vx3top vcmfb3 VDD VDD sg13_lv_pmos W=$Wx_ibias_opmos L=$Lx ng=1 m=1 ** Limited by the 1x nmos current source device used in each branch
+Xmptop_output_plus outn o2p vx3top VDD sg13_lv_pmos W=$Wx_opmos L=$Lx ng=1 m=1
+Xmntop_output_plus outn o2p VSS VSS sg13_lv_nmos W=$Wx_ibias_onmos L=$Lx ng=1 m=1
+Xmptop_output_minus outp o2n vx3top VDD sg13_lv_pmos W=$Wx_opmos L=$Lx ng=1 m=1
+Xmntop_output_minus outp o2n VSS VSS sg13_lv_nmos W=$Wx_ibias_onmos L=$Lx ng=1 m=1
+
+** Bottom half (nmos tail)
+Xmnbot_tail vx3bot vcmfb3 VSS VSS sg13_lv_nmos W=$Wx_ibias_onmos L=$Lx ng=1 m=1 ** Limited by the 1x pmos current source device used in each branch
+Xmpbot_output_plus outn o2p VDD VDD sg13_lv_pmos W=$Wx_ibias_opmos L=$Lx ng=1 m=1
+Xmnbot_output_plus outn o2p vx3bot VSS sg13_lv_nmos W=$Wx_onmos L=$Lx ng=1 m=1
+Xmpbot_output_minus outp o2n VDD VDD sg13_lv_pmos W=$Wx_ibias_opmos L=$Lx ng=1 m=1
+Xmnbot_output_minus outp o2n vx3bot VSS sg13_lv_nmos W=$Wx_onmos L=$Lx ng=1 m=1
+
+** CMFB resistors
+Rs3cmfbp vcmfb3 outp 10e6
+Rs3cmfbn vcmfb3 outn 10e6
+
+
+.ends
