@@ -34,7 +34,7 @@ def enumerate_variables(template_file, output_file):
     # Use re.sub with a callback function to replace each match individually
     template = re.sub(r'\$\s*([a-zA-Z_][a-zA-Z0-9_]*)\s*', replace_match, template)
 
-    # print(variables)
+    print(variables)
 
     # Store variables to a json file
     with open(f'{output_file}.json', 'w') as f:
@@ -66,9 +66,9 @@ def generate_parameters(json_file, batch_size, W_range=(10e-6, 1e-3), IB_range=(
                 if variable[0] == 'W':
                     # Sample uniformly from the range and truncate to {truncation} decimal places
                     parameter[variable+f'_{i+1}'] = round(np.random.uniform(W_range[0], W_range[1]), truncation)
-                elif variable[0] == 'IB':
+                elif variable[0] == 'I':
                     parameter[variable+f'_{i+1}'] = round(np.random.uniform(IB_range[0], IB_range[1]), truncation)
-                elif variable[0] == 'VOV':
+                elif variable[0] == 'V':
                     parameter[variable+f'_{i+1}'] = round(np.random.uniform(VOV_range[0], VOV_range[1]), truncation)
                 else:
                     raise ValueError('Unknown variable type')
@@ -161,26 +161,53 @@ def generate_netlist(template_file, json_parameter_file, output_file):
 #####################################################
 # Under construction - hard coded for op simulation #
 #####################################################
-def extract_csv_result(file, batch_size):
-    # Create pandas object from input file
-    df = pd.read_csv(file, sep='\s+')
-    # repeated_columns = set()
-    # # Use regex to extract repeated columns which have a name in the format '*.#' (dot number)
-    # for col in df.columns:
-    #     match = re.match(r'([\w#]+)\.(\d+)', col)
-    #     if match:
-    #         repeated_columns.add(col)
+# import pandas as pd
 
-    # # Remove repeated columns from the df
-    # df = df.drop(columns=repeated_columns)
+import re
 
+def extract_fwf_result(file, batch_size):
+    # Read the entire file content
+    with open(file, 'r') as f:
+        content = f.read()
+
+    # Initialize the results dictionary
     results = {}
-    for i in range(batch_size):
-        results[i+1] = {}
-        results[i+1]['gain'] = df[f'gain_{i+1}'][0]
-        results[i+1]['freq_3db'] = df[f'freq_3db{i+1}'][0] * -1
 
+    # Use regular expressions to find all gain and freq_3db values
+    gain_pattern = re.compile(r'gain_(\d+)\s*=\s*([\d\.e\+\-]+)')
+    freq_3db_pattern = re.compile(r'freq_3db_(\d+)\s*=\s*([\d\.e\+\-]+)')
+
+    # Find all matches for gain and freq_3db
+    gain_matches = gain_pattern.findall(content)
+    freq_3db_matches = freq_3db_pattern.findall(content)
+
+    # Process the matches and store them in the results dictionary
+    for i in range(1, batch_size + 1):
+        results[i] = {}
+        gain_value = next((float(value) for index, value in gain_matches if int(index) == i), None)
+        freq_3db_value = next((float(value) for index, value in freq_3db_matches if int(index) == i), None)
+
+        if gain_value is not None:
+            results[i]['gain'] = gain_value
+        else:
+            print(f"Warning: gain_{i} not found in the file.")
+            results[i]['gain'] = None  # or some default value
+
+        if freq_3db_value is not None:
+            results[i]['freq_3db'] = freq_3db_value
+        else:
+            print(f"Warning: freq_3db_{i} not found in the file.")
+            results[i]['freq_3db'] = None  # or some default value
+
+    print(results)
     return results
+
+# # Example usage
+# file = 'output.txt'
+# batch_size = 12  # Number of batches in your data
+# results = extract_fwf_result(file, batch_size)
+# print(results)
+
                                    
 def write_search_space_code(ifile, W_range=(10e-6, 1e-3), IB_range=(100e-6, 1e-3), VOV_range=(0.13, 0.5)):
     '''
@@ -198,10 +225,10 @@ def write_search_space_code(ifile, W_range=(10e-6, 1e-3), IB_range=(100e-6, 1e-3
         if variable[0] == 'W':
             for i in range(count):
                 print(f"study_config.search_space.root.add_float_param('{variable}_{i+1}', {W_range[0]}, {W_range[1]})")
-        elif variable[0] == 'IB':
+        elif variable[0] == 'I':
             for i in range(count):
                 print(f"study_config.search_space.root.add_float_param('{variable}_{i+1}', {IB_range[0]}, {IB_range[1]})")
-        elif variable[0] == 'VOV':
+        elif variable[0] == 'V':
             for i in range(count):
                 print(f"study_config.search_space.root.add_float_param('{variable}_{i+1}', {VOV_range[0]}, {VOV_range[1]})")
         else:
@@ -274,62 +301,86 @@ def iterate(suggestions):
     convert_suggestions_to_batched_parameters(suggestions, json_file)
     generate_netlist('Amp_Test_Optimization/autogen/scratch.txt', batched_json_file, netlist_file)
     os.system(f'ngspice -b {netlist_file}')
-    results = extract_csv_result(output_file, batch_size)
+    # results = extract_csv_result(output_file, batch_size)
+    results = extract_fwf_result(output_file, batch_size)
 
     return results
 
-def evaluate(results,parameters):
+# def evaluate(results):
+#     '''
+#     Takes a group of results and returns the metric.
+#     Evaluation function in charge of scoring the result.
+#     '''
+#     metric = []
+#     for i in range(len(results)):
+#         # Look at vout, is this within +/- 10% of 0.6V?
+#         # Graduated penalty for being further away
+#         gain = results[i+1]['gain']
+#         freq_3db = results[i+1]['freq_3db']
+#         # ib_value = parameters[i].get(parameters[i].keys()[0])
+#         # ib_value = {}
+#         # ib_value = parameters[i].get('IB_1', None)
+#         if gain < 0.1 or gain > 20:
+#             metric.append(float(1e9))
+#         elif gain < 1 or gain > 10:
+#             metric.append(float(1e6))
+#         elif gain < 3.5 or gain > 4.5:
+#             metric.append(float(1e3))
+#         elif freq_3db < 1e4 or freq_3db > 1e9:
+#             metric.append(float(1e9))
+#         elif freq_3db < 1e6 or freq_3db > 5e8:
+#             metric.append(float(1e6))
+#         elif freq_3db < 7e7 or freq_3db > 1.25e8:
+#             metric.append(float(1e3))            
+#         else:
+#             metric.append(freq_3db)
+
+#     return metric
+########### copilot suggested
+def evaluate(results, parameters):
     '''
     Takes a group of results and returns the metric.
     Evaluation function in charge of scoring the result.
     '''
     metric = []
     for i in range(len(results)):
-        # Look at vout, is this within +/- 10% of 0.6V?
-        # Graduated penalty for being further away
+
         gain = results[i+1]['gain']
         freq_3db = results[i+1]['freq_3db']
-        ib_value = parameters[i].get('IB')
+        # ib_value = parameters[i].get('IB_1', None)
+        KP = 500e-6
+        L = 1e-6
+        Vov_value = parameters[i].get('VOV_1', None)
+        W_value = parameters[i].get('W_1', None)
+        print(Vov_value)
+        print(W_value)
+        ib_value = KP * (W_value / L ) * ( np.square(Vov_value) / 2)
+        
+        
+        if ib_value is None:
+            print(f"Warning: IB_1 not found in parameters for index {i+1}.")
+            ib_value = float(1e9)  # Assign a default value or handle as needed
+
         if gain < 0.1 or gain > 20:
             metric.append(float(1e9))
         elif gain < 1 or gain > 10:
             metric.append(float(1e6))
-        elif gain < 3.5 or gain > 4.5:
+        elif gain < 3.8 or gain > 4.2:
             metric.append(float(1e3))
         elif freq_3db < 1e4 or freq_3db > 1e9:
             metric.append(float(1e9))
-        elif freq_3db < 1e6 or freq_3db > 5e8:
+        elif freq_3db < 10e6 or freq_3db > 500e6:
             metric.append(float(1e6))
-        elif freq_3db < 7e7 or freq_3db > 1.25e8:
-            metric.append(float(1e3))            
+        elif freq_3db < 80e6 or freq_3db > 150e6:
+            metric.append(float(1e3))
+        elif freq_3db < 100e6 or freq_3db > 105e6:
+            metric.append(float(1e2))
         else:
             metric.append(ib_value)
 
     return metric
 
-# def evaluate(results):
-#     """
-#     Evaluates results with constraints on bandwidth (> 80 MHz) and gain (close to 4).
-#     Metrics favor low ID values if constraints are met.
-#     """
-#     metrics = []
-#     for result in results:
-#         vout = result['vout']
-#         id = result['id']
-#         gain = result['gain']
-#         freq_3db = result['freq_3db']
-
-#         # Set penalties or metrics based on gain and frequency
-#         if freq_3db < 80e6 or abs(gain - 4) > 0.1:
-#             # Large penalty if constraints aren't met
-#             metrics.append(float(1e9))
-#         else:
-#             metrics.append(id)  # Favor low ID if constraints are satisfied
-
-#     return metrics
-
-
-    
+    ############################################ copilot suggested
 if __name__ == '__main__':
     '''
     Script can be run to setup parameter sweep and study setup

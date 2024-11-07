@@ -1,21 +1,139 @@
 **** Input sources
 .options temp=27
 .options method=gear
-*.GLOBAL VDD VSS
 
-** .save all
-XCSamp vs vo CS_AMP 
+** Set global behavior settings and measurement commands
 .control
+op
 set ngbehavior=hs
 set wr_singlescale
 set wr_vecnames
-set wr_vecnames
 ac dec 10 1 10G
 
-save all
-meas ac GAIN find vm(vo) at=10
-meas ac freq_3db when vm(vo) =2.82
-print gain > Amp_Test_Optimization/simulations/output.txt
-print freq_3db >> Amp_Test_Optimization/simulations/output.txt
+meas ac GAIN_1 find vm(vo_1) at=10
+meas ac freq_3db_1 when vm(vo_1) =2.82
+print gain_1 > Amp_Test_Optimization/simulations/output.txt
+print freq_3db_1 >> Amp_Test_Optimization/simulations/output.txt
+
+meas ac GAIN_2 find vm(vo_2) at=10
+meas ac freq_3db_2 when vm(vo_2) =2.82
+print gain_2 >> Amp_Test_Optimization/simulations/output.txt
+print freq_3db_2 >> Amp_Test_Optimization/simulations/output.txt
+
+meas ac GAIN_3 find vm(vo_3) at=10
+meas ac freq_3db_3 when vm(vo_3) =2.82
+print gain_3 >> Amp_Test_Optimization/simulations/output.txt
+print freq_3db_3 >> Amp_Test_Optimization/simulations/output.txt
+
+meas ac GAIN_4 find vm(vo_4) at=10
+meas ac freq_3db_4 when vm(vo_4) =2.82
+print gain_4 >> Amp_Test_Optimization/simulations/output.txt
+print freq_3db_4 >> Amp_Test_Optimization/simulations/output.txt
+
+meas ac GAIN_5 find vm(vo_5) at=10
+meas ac freq_3db_5 when vm(vo_5) =2.82
+print gain_5 >> Amp_Test_Optimization/simulations/output.txt
+print freq_3db_5 >> Amp_Test_Optimization/simulations/output.txt
+
+meas ac GAIN_6 find vm(vo_6) at=10
+meas ac freq_3db_6 when vm(vo_6) =2.82
+print gain_6 >> Amp_Test_Optimization/simulations/output.txt
+print freq_3db_6 >> Amp_Test_Optimization/simulations/output.txt
+
+meas ac GAIN_7 find vm(vo_7) at=10
+meas ac freq_3db_7 when vm(vo_7) =2.82
+print gain_7 >> Amp_Test_Optimization/simulations/output.txt
+print freq_3db_7 >> Amp_Test_Optimization/simulations/output.txt
+
+meas ac GAIN_8 find vm(vo_8) at=10
+meas ac freq_3db_8 when vm(vo_8) =2.82
+print gain_8 >> Amp_Test_Optimization/simulations/output.txt
+print freq_3db_8 >> Amp_Test_Optimization/simulations/output.txt
+
+meas ac GAIN_9 find vm(vo_9) at=10
+meas ac freq_3db_9 when vm(vo_9) =2.82
+print gain_9 >> Amp_Test_Optimization/simulations/output.txt
+print freq_3db_9 >> Amp_Test_Optimization/simulations/output.txt
+
+meas ac GAIN_10 find vm(vo_10) at=10
+meas ac freq_3db_10 when vm(vo_10) =2.82
+print gain_10 >> Amp_Test_Optimization/simulations/output.txt
+print freq_3db_10 >> Amp_Test_Optimization/simulations/output.txt
+
+meas ac GAIN_11 find vm(vo_11) at=10
+meas ac freq_3db_11 when vm(vo_11) =2.82
+print gain_11 >> Amp_Test_Optimization/simulations/output.txt
+print freq_3db_11 >> Amp_Test_Optimization/simulations/output.txt
+
+meas ac GAIN_12 find vm(vo_12) at=10
+meas ac freq_3db_12 when vm(vo_12) =2.82
+print gain_12 >> Amp_Test_Optimization/simulations/output.txt
+print freq_3db_12 >> Amp_Test_Optimization/simulations/output.txt
+
+meas ac GAIN_13 find vm(vo_13) at=10
+meas ac freq_3db_13 when vm(vo_13) =2.82
+print gain_13 >> Amp_Test_Optimization/simulations/output.txt
+print freq_3db_13 >> Amp_Test_Optimization/simulations/output.txt
+
+meas ac GAIN_14 find vm(vo_14) at=10
+meas ac freq_3db_14 when vm(vo_14) =2.82
+print gain_14 >> Amp_Test_Optimization/simulations/output.txt
+print freq_3db_14 >> Amp_Test_Optimization/simulations/output.txt
+
+meas ac GAIN_15 find vm(vo_15) at=10
+meas ac freq_3db_15 when vm(vo_15) =2.82
+print gain_15 >> Amp_Test_Optimization/simulations/output.txt
+print freq_3db_15 >> Amp_Test_Optimization/simulations/output.txt
+
+meas ac GAIN_16 find vm(vo_16) at=10
+meas ac freq_3db_16 when vm(vo_16) =2.82
+print gain_16 >> Amp_Test_Optimization/simulations/output.txt
+print freq_3db_16 >> Amp_Test_Optimization/simulations/output.txt
+
+meas ac GAIN_17 find vm(vo_17) at=10
+meas ac freq_3db_17 when vm(vo_17) =2.82
+print gain_17 >> Amp_Test_Optimization/simulations/output.txt
+print freq_3db_17 >> Amp_Test_Optimization/simulations/output.txt
+
+meas ac GAIN_18 find vm(vo_18) at=10
+meas ac freq_3db_18 when vm(vo_18) =2.82
+print gain_18 >> Amp_Test_Optimization/simulations/output.txt
+print freq_3db_18 >> Amp_Test_Optimization/simulations/output.txt
+
+meas ac GAIN_19 find vm(vo_19) at=10
+meas ac freq_3db_19 when vm(vo_19) =2.82
+print gain_19 >> Amp_Test_Optimization/simulations/output.txt
+print freq_3db_19 >> Amp_Test_Optimization/simulations/output.txt
+
+meas ac GAIN_20 find vm(vo_20) at=10
+meas ac freq_3db_20 when vm(vo_20) =2.82
+print gain_20 >> Amp_Test_Optimization/simulations/output.txt
+print freq_3db_20 >> Amp_Test_Optimization/simulations/output.txt
+
+meas ac GAIN_21 find vm(vo_21) at=10
+meas ac freq_3db_21 when vm(vo_21) =2.82
+print gain_21 >> Amp_Test_Optimization/simulations/output.txt
+print freq_3db_21 >> Amp_Test_Optimization/simulations/output.txt
+
+meas ac GAIN_22 find vm(vo_22) at=10
+meas ac freq_3db_22 when vm(vo_22) =2.82
+print gain_22 >> Amp_Test_Optimization/simulations/output.txt
+print freq_3db_22 >> Amp_Test_Optimization/simulations/output.txt
+
+meas ac GAIN_23 find vm(vo_23) at=10
+meas ac freq_3db_23 when vm(vo_23) =2.82
+print gain_23 >> Amp_Test_Optimization/simulations/output.txt
+print freq_3db_23 >> Amp_Test_Optimization/simulations/output.txt
+
+meas ac GAIN_24 find vm(vo_24) at=10
+meas ac freq_3db_24 when vm(vo_24) =2.82
+print gain_24 >> Amp_Test_Optimization/simulations/output.txt
+print freq_3db_24 >> Amp_Test_Optimization/simulations/output.txt
+
+meas ac GAIN_25 find vm(vo_25) at=10
+meas ac freq_3db_25 when vm(vo_25) =2.82
+print gain_25 >> Amp_Test_Optimization/simulations/output.txt
+print freq_3db_25 >> Amp_Test_Optimization/simulations/output.txt
+
 
 .endc

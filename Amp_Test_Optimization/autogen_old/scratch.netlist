@@ -1,6 +1,7 @@
 **** DUT instance
-XCSamp_1 vs_1 vo_1 CSAMP_1 
+XCSamp_1 in vo_1 CSAMP_1 
 **** Save output voltage for each instance
+
 ***.save vm(vo_1)
 
 
@@ -10,20 +11,19 @@ XCSamp_1 vs_1 vo_1 CSAMP_1
 .subckt CSAMP_1 vs vo 
 .model nch nmos level=1 vto=0.5 kp=50u tox=15n 
 .param rd=995
-.param kp=50u
-.param vov = '0.18298325797460716 *1'    
-.param w_n='0.00031036341587768404 *1'
+
+.param vov = '0.34770124983869743 *1'    
 
 vs   vs   0    ac  1 dc '0.5+vov'  
 vb   vb   0    2.5
+ib   0    vo   '0.0005350753077861613 *1'  
+****Bias Current 
+
+
 
 rs   vs   vg   '2*rd' 
 rd   vb   vo   'rd'
-m1   vo   vg   0  0  nch   w=w_n  l=1u
-****Bias Current 
-.param ib = 'kp*w_n*vov*vov/2e-6'
-ib   0    vo   'ib'  
-
+m1   vo   vg   0  0  nch   w=0.00026069352372727817 l=1u
 cl   vo   0    1e-12
 .ends
 
@@ -35,8 +35,9 @@ cl   vo   0    1e-12
 *************************************************************
 
 **** DUT instance
-XCSamp_2 vs_2 vo_2 CSAMP_2 
+XCSamp_2 in vo_2 CSAMP_2 
 **** Save output voltage for each instance
+
 ***.save vm(vo_2)
 
 
@@ -46,20 +47,19 @@ XCSamp_2 vs_2 vo_2 CSAMP_2
 .subckt CSAMP_2 vs vo 
 .model nch nmos level=1 vto=0.5 kp=50u tox=15n 
 .param rd=995
-.param kp=50u
-.param vov = '0.19250750486630253 *1'    
-.param w_n='0.0003760273210372023 *1'
+
+.param vov = '0.4227012498386974 *1'    
 
 vs   vs   0    ac  1 dc '0.5+vov'  
 vb   vb   0    2.5
+ib   0    vo   '0.0007350753077861612 *1'  
+****Bias Current 
+
+
 
 rs   vs   vg   '2*rd' 
 rd   vb   vo   'rd'
-m1   vo   vg   0  0  nch   w=w_n  l=1u
-****Bias Current 
-.param ib = 'kp*w_n*vov*vov/2e-6'
-ib   0    vo   'ib'  
-
+m1   vo   vg   0  0  nch   w=0.00017069352372727818 l=1u
 cl   vo   0    1e-12
 .ends
 
@@ -71,8 +71,9 @@ cl   vo   0    1e-12
 *************************************************************
 
 **** DUT instance
-XCSamp_3 vs_3 vo_3 CSAMP_3 
+XCSamp_3 in vo_3 CSAMP_3 
 **** Save output voltage for each instance
+
 ***.save vm(vo_3)
 
 
@@ -82,20 +83,19 @@ XCSamp_3 vs_3 vo_3 CSAMP_3
 .subckt CSAMP_3 vs vo 
 .model nch nmos level=1 vto=0.5 kp=50u tox=15n 
 .param rd=995
-.param kp=50u
-.param vov = '0.28236310082158234 *1'    
-.param w_n='0.0003209413053836847 *1'
+
+.param vov = '0.27270124983869737 *1'    
 
 vs   vs   0    ac  1 dc '0.5+vov'  
 vb   vb   0    2.5
+ib   0    vo   '0.00033507530778616114 *1'  
+****Bias Current 
+
+
 
 rs   vs   vg   '2*rd' 
 rd   vb   vo   'rd'
-m1   vo   vg   0  0  nch   w=w_n  l=1u
-****Bias Current 
-.param ib = 'kp*w_n*vov*vov/2e-6'
-ib   0    vo   'ib'  
-
+m1   vo   vg   0  0  nch   w=0.0004406935237272782 l=1u
 cl   vo   0    1e-12
 .ends
 
@@ -107,8 +107,9 @@ cl   vo   0    1e-12
 *************************************************************
 
 **** DUT instance
-XCSamp_4 vs_4 vo_4 CSAMP_4 
+XCSamp_4 in vo_4 CSAMP_4 
 **** Save output voltage for each instance
+
 ***.save vm(vo_4)
 
 
@@ -118,20 +119,19 @@ XCSamp_4 vs_4 vo_4 CSAMP_4
 .subckt CSAMP_4 vs vo 
 .model nch nmos level=1 vto=0.5 kp=50u tox=15n 
 .param rd=995
-.param kp=50u
-.param vov = '0.26700442310424455 *1'    
-.param w_n='0.0003414813138465898 *1'
+
+.param vov = '0.46020124983869737 *1'    
 
 vs   vs   0    ac  1 dc '0.5+vov'  
 vb   vb   0    2.5
+ib   0    vo   '0.0004684086411194944 *1'  
+****Bias Current 
+
+
 
 rs   vs   vg   '2*rd' 
 rd   vb   vo   'rd'
-m1   vo   vg   0  0  nch   w=w_n  l=1u
-****Bias Current 
-.param ib = 'kp*w_n*vov*vov/2e-6'
-ib   0    vo   'ib'  
-
+m1   vo   vg   0  0  nch   w=6.269352372727818e-05 l=1u
 cl   vo   0    1e-12
 .ends
 
@@ -143,8 +143,9 @@ cl   vo   0    1e-12
 *************************************************************
 
 **** DUT instance
-XCSamp_5 vs_5 vo_5 CSAMP_5 
+XCSamp_5 in vo_5 CSAMP_5 
 **** Save output voltage for each instance
+
 ***.save vm(vo_5)
 
 
@@ -154,20 +155,19 @@ XCSamp_5 vs_5 vo_5 CSAMP_5
 .subckt CSAMP_5 vs vo 
 .model nch nmos level=1 vto=0.5 kp=50u tox=15n 
 .param rd=995
-.param kp=50u
-.param vov = '0.19613173027837555 *1'    
-.param w_n='0.00033648205971815483 *1'
+
+.param vov = '0.3102012498386974 *1'    
 
 vs   vs   0    ac  1 dc '0.5+vov'  
 vb   vb   0    2.5
+ib   0    vo   '0.0006684086411194945 *1'  
+****Bias Current 
+
+
 
 rs   vs   vg   '2*rd' 
 rd   vb   vo   'rd'
-m1   vo   vg   0  0  nch   w=w_n  l=1u
-****Bias Current 
-.param ib = 'kp*w_n*vov*vov/2e-6'
-ib   0    vo   'ib'  
-
+m1   vo   vg   0  0  nch   w=0.00033269352372727824 l=1u
 cl   vo   0    1e-12
 .ends
 
@@ -179,8 +179,9 @@ cl   vo   0    1e-12
 *************************************************************
 
 **** DUT instance
-XCSamp_6 vs_6 vo_6 CSAMP_6 
+XCSamp_6 in vo_6 CSAMP_6 
 **** Save output voltage for each instance
+
 ***.save vm(vo_6)
 
 
@@ -190,20 +191,19 @@ XCSamp_6 vs_6 vo_6 CSAMP_6
 .subckt CSAMP_6 vs vo 
 .model nch nmos level=1 vto=0.5 kp=50u tox=15n 
 .param rd=995
-.param kp=50u
-.param vov = '0.3 *1'    
-.param w_n='0.000405303301761067 *1'
+
+.param vov = '0.3852012498386974 *1'    
 
 vs   vs   0    ac  1 dc '0.5+vov'  
 vb   vb   0    2.5
+ib   0    vo   '0.0002684086411194945 *1'  
+****Bias Current 
+
+
 
 rs   vs   vg   '2*rd' 
 rd   vb   vo   'rd'
-m1   vo   vg   0  0  nch   w=w_n  l=1u
-****Bias Current 
-.param ib = 'kp*w_n*vov*vov/2e-6'
-ib   0    vo   'ib'  
-
+m1   vo   vg   0  0  nch   w=0.0002426935237272782 l=1u
 cl   vo   0    1e-12
 .ends
 
@@ -215,8 +215,9 @@ cl   vo   0    1e-12
 *************************************************************
 
 **** DUT instance
-XCSamp_7 vs_7 vo_7 CSAMP_7 
+XCSamp_7 in vo_7 CSAMP_7 
 **** Save output voltage for each instance
+
 ***.save vm(vo_7)
 
 
@@ -226,20 +227,19 @@ XCSamp_7 vs_7 vo_7 CSAMP_7
 .subckt CSAMP_7 vs vo 
 .model nch nmos level=1 vto=0.5 kp=50u tox=15n 
 .param rd=995
-.param kp=50u
-.param vov = '0.2632641266055782 *1'    
-.param w_n='0.0003834827597894271 *1'
+
+.param vov = '0.2352012498386974 *1'    
 
 vs   vs   0    ac  1 dc '0.5+vov'  
 vb   vb   0    2.5
+ib   0    vo   '0.00044618641889727223 *1'  
+****Bias Current 
+
+
 
 rs   vs   vg   '2*rd' 
 rd   vb   vo   'rd'
-m1   vo   vg   0  0  nch   w=w_n  l=1u
-****Bias Current 
-.param ib = 'kp*w_n*vov*vov/2e-6'
-ib   0    vo   'ib'  
-
+m1   vo   vg   0  0  nch   w=0.00015269352372727818 l=1u
 cl   vo   0    1e-12
 .ends
 
@@ -251,8 +251,9 @@ cl   vo   0    1e-12
 *************************************************************
 
 **** DUT instance
-XCSamp_8 vs_8 vo_8 CSAMP_8 
+XCSamp_8 in vo_8 CSAMP_8 
 **** Save output voltage for each instance
+
 ***.save vm(vo_8)
 
 
@@ -262,20 +263,19 @@ XCSamp_8 vs_8 vo_8 CSAMP_8
 .subckt CSAMP_8 vs vo 
 .model nch nmos level=1 vto=0.5 kp=50u tox=15n 
 .param rd=995
-.param kp=50u
-.param vov = '0.28982517898203786 *1'    
-.param w_n='0.0003539420518165038 *1'
+
+.param vov = '0.4789512498386974 *1'    
 
 vs   vs   0    ac  1 dc '0.5+vov'  
 vb   vb   0    2.5
+ib   0    vo   '0.0006461864188972724 *1'  
+****Bias Current 
+
+
 
 rs   vs   vg   '2*rd' 
 rd   vb   vo   'rd'
-m1   vo   vg   0  0  nch   w=w_n  l=1u
-****Bias Current 
-.param ib = 'kp*w_n*vov*vov/2e-6'
-ib   0    vo   'ib'  
-
+m1   vo   vg   0  0  nch   w=0.0004226935237272782 l=1u
 cl   vo   0    1e-12
 .ends
 
@@ -287,8 +287,9 @@ cl   vo   0    1e-12
 *************************************************************
 
 **** DUT instance
-XCSamp_9 vs_9 vo_9 CSAMP_9 
+XCSamp_9 in vo_9 CSAMP_9 
 **** Save output voltage for each instance
+
 ***.save vm(vo_9)
 
 
@@ -298,20 +299,19 @@ XCSamp_9 vs_9 vo_9 CSAMP_9
 .subckt CSAMP_9 vs vo 
 .model nch nmos level=1 vto=0.5 kp=50u tox=15n 
 .param rd=995
-.param kp=50u
-.param vov = '0.2885011001113318 *1'    
-.param w_n='0.0002605466636849772 *1'
+
+.param vov = '0.3289512498386974 *1'    
 
 vs   vs   0    ac  1 dc '0.5+vov'  
 vb   vb   0    2.5
+ib   0    vo   '0.00024618641889727225 *1'  
+****Bias Current 
+
+
 
 rs   vs   vg   '2*rd' 
 rd   vb   vo   'rd'
-m1   vo   vg   0  0  nch   w=w_n  l=1u
-****Bias Current 
-.param ib = 'kp*w_n*vov*vov/2e-6'
-ib   0    vo   'ib'  
-
+m1   vo   vg   0  0  nch   w=9.869352372727816e-05 l=1u
 cl   vo   0    1e-12
 .ends
 
@@ -323,8 +323,9 @@ cl   vo   0    1e-12
 *************************************************************
 
 **** DUT instance
-XCSamp_10 vs_10 vo_10 CSAMP_10 
+XCSamp_10 in vo_10 CSAMP_10 
 **** Save output voltage for each instance
+
 ***.save vm(vo_10)
 
 
@@ -334,20 +335,19 @@ XCSamp_10 vs_10 vo_10 CSAMP_10
 .subckt CSAMP_10 vs vo 
 .model nch nmos level=1 vto=0.5 kp=50u tox=15n 
 .param rd=995
-.param kp=50u
-.param vov = '0.17375106297055407 *1'    
-.param w_n='0.0002887974451756365 *1'
+
+.param vov = '0.4039512498386974 *1'    
 
 vs   vs   0    ac  1 dc '0.5+vov'  
 vb   vb   0    2.5
+ib   0    vo   '0.0005795197522306057 *1'  
+****Bias Current 
+
+
 
 rs   vs   vg   '2*rd' 
 rd   vb   vo   'rd'
-m1   vo   vg   0  0  nch   w=w_n  l=1u
-****Bias Current 
-.param ib = 'kp*w_n*vov*vov/2e-6'
-ib   0    vo   'ib'  
-
+m1   vo   vg   0  0  nch   w=0.0003686935237272782 l=1u
 cl   vo   0    1e-12
 .ends
 
@@ -359,8 +359,9 @@ cl   vo   0    1e-12
 *************************************************************
 
 **** DUT instance
-XCSamp_11 vs_11 vo_11 CSAMP_11 
+XCSamp_11 in vo_11 CSAMP_11 
 **** Save output voltage for each instance
+
 ***.save vm(vo_11)
 
 
@@ -370,20 +371,19 @@ XCSamp_11 vs_11 vo_11 CSAMP_11
 .subckt CSAMP_11 vs vo 
 .model nch nmos level=1 vto=0.5 kp=50u tox=15n 
 .param rd=995
-.param kp=50u
-.param vov = '0.2653661938125718 *1'    
-.param w_n='0.00025 *1'
+
+.param vov = '0.2539512498386974 *1'    
 
 vs   vs   0    ac  1 dc '0.5+vov'  
 vb   vb   0    2.5
+ib   0    vo   '0.0007795197522306057 *1'  
+****Bias Current 
+
+
 
 rs   vs   vg   '2*rd' 
 rd   vb   vo   'rd'
-m1   vo   vg   0  0  nch   w=w_n  l=1u
-****Bias Current 
-.param ib = 'kp*w_n*vov*vov/2e-6'
-ib   0    vo   'ib'  
-
+m1   vo   vg   0  0  nch   w=0.0002786935237272782 l=1u
 cl   vo   0    1e-12
 .ends
 
@@ -395,8 +395,9 @@ cl   vo   0    1e-12
 *************************************************************
 
 **** DUT instance
-XCSamp_12 vs_12 vo_12 CSAMP_12 
+XCSamp_12 in vo_12 CSAMP_12 
 **** Save output voltage for each instance
+
 ***.save vm(vo_12)
 
 
@@ -406,20 +407,19 @@ XCSamp_12 vs_12 vo_12 CSAMP_12
 .subckt CSAMP_12 vs vo 
 .model nch nmos level=1 vto=0.5 kp=50u tox=15n 
 .param rd=995
-.param kp=50u
-.param vov = '0.24858036312922416 *1'    
-.param w_n='0.0004383479836706962 *1'
+
+.param vov = '0.4414512498386974 *1'    
 
 vs   vs   0    ac  1 dc '0.5+vov'  
 vb   vb   0    2.5
+ib   0    vo   '0.00037951975223060553 *1'  
+****Bias Current 
+
+
 
 rs   vs   vg   '2*rd' 
 rd   vb   vo   'rd'
-m1   vo   vg   0  0  nch   w=w_n  l=1u
-****Bias Current 
-.param ib = 'kp*w_n*vov*vov/2e-6'
-ib   0    vo   'ib'  
-
+m1   vo   vg   0  0  nch   w=0.00018869352372727818 l=1u
 cl   vo   0    1e-12
 .ends
 
@@ -431,8 +431,9 @@ cl   vo   0    1e-12
 *************************************************************
 
 **** DUT instance
-XCSamp_13 vs_13 vo_13 CSAMP_13 
+XCSamp_13 in vo_13 CSAMP_13 
 **** Save output voltage for each instance
+
 ***.save vm(vo_13)
 
 
@@ -442,20 +443,19 @@ XCSamp_13 vs_13 vo_13 CSAMP_13
 .subckt CSAMP_13 vs vo 
 .model nch nmos level=1 vto=0.5 kp=50u tox=15n 
 .param rd=995
-.param kp=50u
-.param vov = '0.17072724387026844 *1'    
-.param w_n='0.0003965736642881847 *1'
+
+.param vov = '0.2914512498386974 *1'    
 
 vs   vs   0    ac  1 dc '0.5+vov'  
 vb   vb   0    2.5
+ib   0    vo   '0.000512853085563939 *1'  
+****Bias Current 
+
+
 
 rs   vs   vg   '2*rd' 
 rd   vb   vo   'rd'
-m1   vo   vg   0  0  nch   w=w_n  l=1u
-****Bias Current 
-.param ib = 'kp*w_n*vov*vov/2e-6'
-ib   0    vo   'ib'  
-
+m1   vo   vg   0  0  nch   w=0.00045869352372727816 l=1u
 cl   vo   0    1e-12
 .ends
 
@@ -467,8 +467,9 @@ cl   vo   0    1e-12
 *************************************************************
 
 **** DUT instance
-XCSamp_14 vs_14 vo_14 CSAMP_14 
+XCSamp_14 in vo_14 CSAMP_14 
 **** Save output voltage for each instance
+
 ***.save vm(vo_14)
 
 
@@ -478,20 +479,19 @@ XCSamp_14 vs_14 vo_14 CSAMP_14
 .subckt CSAMP_14 vs vo 
 .model nch nmos level=1 vto=0.5 kp=50u tox=15n 
 .param rd=995
-.param kp=50u
-.param vov = '0.2875361146455797 *1'    
-.param w_n='0.0002842434632616523 *1'
+
+.param vov = '0.36645124983869737 *1'    
 
 vs   vs   0    ac  1 dc '0.5+vov'  
 vb   vb   0    2.5
+ib   0    vo   '0.000712853085563939 *1'  
+****Bias Current 
+
+
 
 rs   vs   vg   '2*rd' 
 rd   vb   vo   'rd'
-m1   vo   vg   0  0  nch   w=w_n  l=1u
-****Bias Current 
-.param ib = 'kp*w_n*vov*vov/2e-6'
-ib   0    vo   'ib'  
-
+m1   vo   vg   0  0  nch   w=0.00013469352372727817 l=1u
 cl   vo   0    1e-12
 .ends
 
@@ -503,8 +503,9 @@ cl   vo   0    1e-12
 *************************************************************
 
 **** DUT instance
-XCSamp_15 vs_15 vo_15 CSAMP_15 
+XCSamp_15 in vo_15 CSAMP_15 
 **** Save output voltage for each instance
+
 ***.save vm(vo_15)
 
 
@@ -514,20 +515,19 @@ XCSamp_15 vs_15 vo_15 CSAMP_15
 .subckt CSAMP_15 vs vo 
 .model nch nmos level=1 vto=0.5 kp=50u tox=15n 
 .param rd=995
-.param kp=50u
-.param vov = '0.27627168256221873 *1'    
-.param w_n='0.0003919804982106743 *1'
+
+.param vov = '0.2164512498386974 *1'    
 
 vs   vs   0    ac  1 dc '0.5+vov'  
 vb   vb   0    2.5
+ib   0    vo   '0.00031285308556393894 *1'  
+****Bias Current 
+
+
 
 rs   vs   vg   '2*rd' 
 rd   vb   vo   'rd'
-m1   vo   vg   0  0  nch   w=w_n  l=1u
-****Bias Current 
-.param ib = 'kp*w_n*vov*vov/2e-6'
-ib   0    vo   'ib'  
-
+m1   vo   vg   0  0  nch   w=0.00040469352372727826 l=1u
 cl   vo   0    1e-12
 .ends
 
@@ -539,8 +539,9 @@ cl   vo   0    1e-12
 *************************************************************
 
 **** DUT instance
-XCSamp_16 vs_16 vo_16 CSAMP_16 
+XCSamp_16 in vo_16 CSAMP_16 
 **** Save output voltage for each instance
+
 ***.save vm(vo_16)
 
 
@@ -550,20 +551,19 @@ XCSamp_16 vs_16 vo_16 CSAMP_16
 .subckt CSAMP_16 vs vo 
 .model nch nmos level=1 vto=0.5 kp=50u tox=15n 
 .param rd=995
-.param kp=50u
-.param vov = '0.2227238880635977 *1'    
-.param w_n='0.0004327002362832121 *1'
+
+.param vov = '0.4883262498386974 *1'    
 
 vs   vs   0    ac  1 dc '0.5+vov'  
 vb   vb   0    2.5
+ib   0    vo   '0.00042396419667505003 *1'  
+****Bias Current 
+
+
 
 rs   vs   vg   '2*rd' 
 rd   vb   vo   'rd'
-m1   vo   vg   0  0  nch   w=w_n  l=1u
-****Bias Current 
-.param ib = 'kp*w_n*vov*vov/2e-6'
-ib   0    vo   'ib'  
-
+m1   vo   vg   0  0  nch   w=0.0003146935237272782 l=1u
 cl   vo   0    1e-12
 .ends
 
@@ -575,8 +575,9 @@ cl   vo   0    1e-12
 *************************************************************
 
 **** DUT instance
-XCSamp_17 vs_17 vo_17 CSAMP_17 
+XCSamp_17 in vo_17 CSAMP_17 
 **** Save output voltage for each instance
+
 ***.save vm(vo_17)
 
 
@@ -586,20 +587,19 @@ XCSamp_17 vs_17 vo_17 CSAMP_17
 .subckt CSAMP_17 vs vo 
 .model nch nmos level=1 vto=0.5 kp=50u tox=15n 
 .param rd=995
-.param kp=50u
-.param vov = '0.22232083851052686 *1'    
-.param w_n='0.0004099631627701696 *1'
+
+.param vov = '0.3383262498386974 *1'    
 
 vs   vs   0    ac  1 dc '0.5+vov'  
 vb   vb   0    2.5
+ib   0    vo   '0.0006239641966750502 *1'  
+****Bias Current 
+
+
 
 rs   vs   vg   '2*rd' 
 rd   vb   vo   'rd'
-m1   vo   vg   0  0  nch   w=w_n  l=1u
-****Bias Current 
-.param ib = 'kp*w_n*vov*vov/2e-6'
-ib   0    vo   'ib'  
-
+m1   vo   vg   0  0  nch   w=0.00022469352372727816 l=1u
 cl   vo   0    1e-12
 .ends
 
@@ -611,8 +611,9 @@ cl   vo   0    1e-12
 *************************************************************
 
 **** DUT instance
-XCSamp_18 vs_18 vo_18 CSAMP_18 
+XCSamp_18 in vo_18 CSAMP_18 
 **** Save output voltage for each instance
+
 ***.save vm(vo_18)
 
 
@@ -622,20 +623,19 @@ XCSamp_18 vs_18 vo_18 CSAMP_18
 .subckt CSAMP_18 vs vo 
 .model nch nmos level=1 vto=0.5 kp=50u tox=15n 
 .param rd=995
-.param kp=50u
-.param vov = '0.29019389553717767 *1'    
-.param w_n='0.00043341684175230875 *1'
+
+.param vov = '0.41332624983869737 *1'    
 
 vs   vs   0    ac  1 dc '0.5+vov'  
 vb   vb   0    2.5
+ib   0    vo   '0.00022396419667505005 *1'  
+****Bias Current 
+
+
 
 rs   vs   vg   '2*rd' 
 rd   vb   vo   'rd'
-m1   vo   vg   0  0  nch   w=w_n  l=1u
-****Bias Current 
-.param ib = 'kp*w_n*vov*vov/2e-6'
-ib   0    vo   'ib'  
-
+m1   vo   vg   0  0  nch   w=0.0004946935237272782 l=1u
 cl   vo   0    1e-12
 .ends
 
@@ -647,8 +647,9 @@ cl   vo   0    1e-12
 *************************************************************
 
 **** DUT instance
-XCSamp_19 vs_19 vo_19 CSAMP_19 
+XCSamp_19 in vo_19 CSAMP_19 
 **** Save output voltage for each instance
+
 ***.save vm(vo_19)
 
 
@@ -658,20 +659,19 @@ XCSamp_19 vs_19 vo_19 CSAMP_19
 .subckt CSAMP_19 vs vo 
 .model nch nmos level=1 vto=0.5 kp=50u tox=15n 
 .param rd=995
-.param kp=50u
-.param vov = '0.28830150566572393 *1'    
-.param w_n='0.0003766588784017914 *1'
+
+.param vov = '0.2633262498386974 *1'    
 
 vs   vs   0    ac  1 dc '0.5+vov'  
 vb   vb   0    2.5
+ib   0    vo   '0.0005572975300083835 *1'  
+****Bias Current 
+
+
 
 rs   vs   vg   '2*rd' 
 rd   vb   vo   'rd'
-m1   vo   vg   0  0  nch   w=w_n  l=1u
-****Bias Current 
-.param ib = 'kp*w_n*vov*vov/2e-6'
-ib   0    vo   'ib'  
-
+m1   vo   vg   0  0  nch   w=0.00011669352372727817 l=1u
 cl   vo   0    1e-12
 .ends
 
@@ -683,8 +683,9 @@ cl   vo   0    1e-12
 *************************************************************
 
 **** DUT instance
-XCSamp_20 vs_20 vo_20 CSAMP_20 
+XCSamp_20 in vo_20 CSAMP_20 
 **** Save output voltage for each instance
+
 ***.save vm(vo_20)
 
 
@@ -694,20 +695,19 @@ XCSamp_20 vs_20 vo_20 CSAMP_20
 .subckt CSAMP_20 vs vo 
 .model nch nmos level=1 vto=0.5 kp=50u tox=15n 
 .param rd=995
-.param kp=50u
-.param vov = '0.23411362252031842 *1'    
-.param w_n='0.0003896638403490778 *1'
+
+.param vov = '0.4508262498386974 *1'    
 
 vs   vs   0    ac  1 dc '0.5+vov'  
 vb   vb   0    2.5
+ib   0    vo   '0.0007572975300083834 *1'  
+****Bias Current 
+
+
 
 rs   vs   vg   '2*rd' 
 rd   vb   vo   'rd'
-m1   vo   vg   0  0  nch   w=w_n  l=1u
-****Bias Current 
-.param ib = 'kp*w_n*vov*vov/2e-6'
-ib   0    vo   'ib'  
-
+m1   vo   vg   0  0  nch   w=0.0003866935237272782 l=1u
 cl   vo   0    1e-12
 .ends
 
@@ -719,8 +719,9 @@ cl   vo   0    1e-12
 *************************************************************
 
 **** DUT instance
-XCSamp_21 vs_21 vo_21 CSAMP_21 
+XCSamp_21 in vo_21 CSAMP_21 
 **** Save output voltage for each instance
+
 ***.save vm(vo_21)
 
 
@@ -730,20 +731,19 @@ XCSamp_21 vs_21 vo_21 CSAMP_21
 .subckt CSAMP_21 vs vo 
 .model nch nmos level=1 vto=0.5 kp=50u tox=15n 
 .param rd=995
-.param kp=50u
-.param vov = '0.24595653408534085 *1'    
-.param w_n='0.00025 *1'
+
+.param vov = '0.3008262498386974 *1'    
 
 vs   vs   0    ac  1 dc '0.5+vov'  
 vb   vb   0    2.5
+ib   0    vo   '0.00035729753000838334 *1'  
+****Bias Current 
+
+
 
 rs   vs   vg   '2*rd' 
 rd   vb   vo   'rd'
-m1   vo   vg   0  0  nch   w=w_n  l=1u
-****Bias Current 
-.param ib = 'kp*w_n*vov*vov/2e-6'
-ib   0    vo   'ib'  
-
+m1   vo   vg   0  0  nch   w=0.0002966935237272782 l=1u
 cl   vo   0    1e-12
 .ends
 
@@ -755,8 +755,9 @@ cl   vo   0    1e-12
 *************************************************************
 
 **** DUT instance
-XCSamp_22 vs_22 vo_22 CSAMP_22 
+XCSamp_22 in vo_22 CSAMP_22 
 **** Save output voltage for each instance
+
 ***.save vm(vo_22)
 
 
@@ -766,20 +767,19 @@ XCSamp_22 vs_22 vo_22 CSAMP_22
 .subckt CSAMP_22 vs vo 
 .model nch nmos level=1 vto=0.5 kp=50u tox=15n 
 .param rd=995
-.param kp=50u
-.param vov = '0.15 *1'    
-.param w_n='0.0002987331807713513 *1'
+
+.param vov = '0.3758262498386974 *1'    
 
 vs   vs   0    ac  1 dc '0.5+vov'  
 vb   vb   0    2.5
+ib   0    vo   '0.0004906308633417167 *1'  
+****Bias Current 
+
+
 
 rs   vs   vg   '2*rd' 
 rd   vb   vo   'rd'
-m1   vo   vg   0  0  nch   w=w_n  l=1u
-****Bias Current 
-.param ib = 'kp*w_n*vov*vov/2e-6'
-ib   0    vo   'ib'  
-
+m1   vo   vg   0  0  nch   w=0.0002066935237272782 l=1u
 cl   vo   0    1e-12
 .ends
 
@@ -791,8 +791,9 @@ cl   vo   0    1e-12
 *************************************************************
 
 **** DUT instance
-XCSamp_23 vs_23 vo_23 CSAMP_23 
+XCSamp_23 in vo_23 CSAMP_23 
 **** Save output voltage for each instance
+
 ***.save vm(vo_23)
 
 
@@ -802,20 +803,19 @@ XCSamp_23 vs_23 vo_23 CSAMP_23
 .subckt CSAMP_23 vs vo 
 .model nch nmos level=1 vto=0.5 kp=50u tox=15n 
 .param rd=995
-.param kp=50u
-.param vov = '0.21592460146427517 *1'    
-.param w_n='0.00025 *1'
+
+.param vov = '0.2258262498386974 *1'    
 
 vs   vs   0    ac  1 dc '0.5+vov'  
 vb   vb   0    2.5
+ib   0    vo   '0.0006906308633417167 *1'  
+****Bias Current 
+
+
 
 rs   vs   vg   '2*rd' 
 rd   vb   vo   'rd'
-m1   vo   vg   0  0  nch   w=w_n  l=1u
-****Bias Current 
-.param ib = 'kp*w_n*vov*vov/2e-6'
-ib   0    vo   'ib'  
-
+m1   vo   vg   0  0  nch   w=0.0004766935237272782 l=1u
 cl   vo   0    1e-12
 .ends
 
@@ -827,8 +827,9 @@ cl   vo   0    1e-12
 *************************************************************
 
 **** DUT instance
-XCSamp_24 vs_24 vo_24 CSAMP_24 
+XCSamp_24 in vo_24 CSAMP_24 
 **** Save output voltage for each instance
+
 ***.save vm(vo_24)
 
 
@@ -838,20 +839,19 @@ XCSamp_24 vs_24 vo_24 CSAMP_24
 .subckt CSAMP_24 vs vo 
 .model nch nmos level=1 vto=0.5 kp=50u tox=15n 
 .param rd=995
-.param kp=50u
-.param vov = '0.20801633158198554 *1'    
-.param w_n='0.00045 *1'
+
+.param vov = '0.35 *1'    
 
 vs   vs   0    ac  1 dc '0.5+vov'  
 vb   vb   0    2.5
+ib   0    vo   '0.0005 *1'  
+****Bias Current 
+
+
 
 rs   vs   vg   '2*rd' 
 rd   vb   vo   'rd'
-m1   vo   vg   0  0  nch   w=w_n  l=1u
-****Bias Current 
-.param ib = 'kp*w_n*vov*vov/2e-6'
-ib   0    vo   'ib'  
-
+m1   vo   vg   0  0  nch   w=0.000275 l=1u
 cl   vo   0    1e-12
 .ends
 
@@ -863,8 +863,9 @@ cl   vo   0    1e-12
 *************************************************************
 
 **** DUT instance
-XCSamp_25 vs_25 vo_25 CSAMP_25 
+XCSamp_25 in vo_25 CSAMP_25 
 **** Save output voltage for each instance
+
 ***.save vm(vo_25)
 
 
@@ -874,20 +875,19 @@ XCSamp_25 vs_25 vo_25 CSAMP_25
 .subckt CSAMP_25 vs vo 
 .model nch nmos level=1 vto=0.5 kp=50u tox=15n 
 .param rd=995
-.param kp=50u
-.param vov = '0.29999999999999954 *1'    
-.param w_n='0.00026787977355623047 *1'
+
+.param vov = '0.35 *1'    
 
 vs   vs   0    ac  1 dc '0.5+vov'  
 vb   vb   0    2.5
+ib   0    vo   '0.0005 *1'  
+****Bias Current 
+
+
 
 rs   vs   vg   '2*rd' 
 rd   vb   vo   'rd'
-m1   vo   vg   0  0  nch   w=w_n  l=1u
-****Bias Current 
-.param ib = 'kp*w_n*vov*vov/2e-6'
-ib   0    vo   'ib'  
-
+m1   vo   vg   0  0  nch   w=0.000275 l=1u
 cl   vo   0    1e-12
 .ends
 
@@ -904,136 +904,15 @@ cl   vo   0    1e-12
 
 ** Set global behavior settings and measurement commands
 .control
-op
 set ngbehavior=hs
 set wr_singlescale
 set wr_vecnames
 ac dec 10 1 10G
 
-meas ac GAIN_1 find vm(vo_1) at=10
-meas ac freq_3db_1 when vm(vo_1) =2.82
-print gain_1 > Amp_Test_Optimization/simulations/output.txt
-print freq_3db_1 >> Amp_Test_Optimization/simulations/output.txt
-
-meas ac GAIN_2 find vm(vo_2) at=10
-meas ac freq_3db_2 when vm(vo_2) =2.82
-print gain_2 >> Amp_Test_Optimization/simulations/output.txt
-print freq_3db_2 >> Amp_Test_Optimization/simulations/output.txt
-
-meas ac GAIN_3 find vm(vo_3) at=10
-meas ac freq_3db_3 when vm(vo_3) =2.82
-print gain_3 >> Amp_Test_Optimization/simulations/output.txt
-print freq_3db_3 >> Amp_Test_Optimization/simulations/output.txt
-
-meas ac GAIN_4 find vm(vo_4) at=10
-meas ac freq_3db_4 when vm(vo_4) =2.82
-print gain_4 >> Amp_Test_Optimization/simulations/output.txt
-print freq_3db_4 >> Amp_Test_Optimization/simulations/output.txt
-
-meas ac GAIN_5 find vm(vo_5) at=10
-meas ac freq_3db_5 when vm(vo_5) =2.82
-print gain_5 >> Amp_Test_Optimization/simulations/output.txt
-print freq_3db_5 >> Amp_Test_Optimization/simulations/output.txt
-
-meas ac GAIN_6 find vm(vo_6) at=10
-meas ac freq_3db_6 when vm(vo_6) =2.82
-print gain_6 >> Amp_Test_Optimization/simulations/output.txt
-print freq_3db_6 >> Amp_Test_Optimization/simulations/output.txt
-
-meas ac GAIN_7 find vm(vo_7) at=10
-meas ac freq_3db_7 when vm(vo_7) =2.82
-print gain_7 >> Amp_Test_Optimization/simulations/output.txt
-print freq_3db_7 >> Amp_Test_Optimization/simulations/output.txt
-
-meas ac GAIN_8 find vm(vo_8) at=10
-meas ac freq_3db_8 when vm(vo_8) =2.82
-print gain_8 >> Amp_Test_Optimization/simulations/output.txt
-print freq_3db_8 >> Amp_Test_Optimization/simulations/output.txt
-
-meas ac GAIN_9 find vm(vo_9) at=10
-meas ac freq_3db_9 when vm(vo_9) =2.82
-print gain_9 >> Amp_Test_Optimization/simulations/output.txt
-print freq_3db_9 >> Amp_Test_Optimization/simulations/output.txt
-
-meas ac GAIN_10 find vm(vo_10) at=10
-meas ac freq_3db_10 when vm(vo_10) =2.82
-print gain_10 >> Amp_Test_Optimization/simulations/output.txt
-print freq_3db_10 >> Amp_Test_Optimization/simulations/output.txt
-
-meas ac GAIN_11 find vm(vo_11) at=10
-meas ac freq_3db_11 when vm(vo_11) =2.82
-print gain_11 >> Amp_Test_Optimization/simulations/output.txt
-print freq_3db_11 >> Amp_Test_Optimization/simulations/output.txt
-
-meas ac GAIN_12 find vm(vo_12) at=10
-meas ac freq_3db_12 when vm(vo_12) =2.82
-print gain_12 >> Amp_Test_Optimization/simulations/output.txt
-print freq_3db_12 >> Amp_Test_Optimization/simulations/output.txt
-
-meas ac GAIN_13 find vm(vo_13) at=10
-meas ac freq_3db_13 when vm(vo_13) =2.82
-print gain_13 >> Amp_Test_Optimization/simulations/output.txt
-print freq_3db_13 >> Amp_Test_Optimization/simulations/output.txt
-
-meas ac GAIN_14 find vm(vo_14) at=10
-meas ac freq_3db_14 when vm(vo_14) =2.82
-print gain_14 >> Amp_Test_Optimization/simulations/output.txt
-print freq_3db_14 >> Amp_Test_Optimization/simulations/output.txt
-
-meas ac GAIN_15 find vm(vo_15) at=10
-meas ac freq_3db_15 when vm(vo_15) =2.82
-print gain_15 >> Amp_Test_Optimization/simulations/output.txt
-print freq_3db_15 >> Amp_Test_Optimization/simulations/output.txt
-
-meas ac GAIN_16 find vm(vo_16) at=10
-meas ac freq_3db_16 when vm(vo_16) =2.82
-print gain_16 >> Amp_Test_Optimization/simulations/output.txt
-print freq_3db_16 >> Amp_Test_Optimization/simulations/output.txt
-
-meas ac GAIN_17 find vm(vo_17) at=10
-meas ac freq_3db_17 when vm(vo_17) =2.82
-print gain_17 >> Amp_Test_Optimization/simulations/output.txt
-print freq_3db_17 >> Amp_Test_Optimization/simulations/output.txt
-
-meas ac GAIN_18 find vm(vo_18) at=10
-meas ac freq_3db_18 when vm(vo_18) =2.82
-print gain_18 >> Amp_Test_Optimization/simulations/output.txt
-print freq_3db_18 >> Amp_Test_Optimization/simulations/output.txt
-
-meas ac GAIN_19 find vm(vo_19) at=10
-meas ac freq_3db_19 when vm(vo_19) =2.82
-print gain_19 >> Amp_Test_Optimization/simulations/output.txt
-print freq_3db_19 >> Amp_Test_Optimization/simulations/output.txt
-
-meas ac GAIN_20 find vm(vo_20) at=10
-meas ac freq_3db_20 when vm(vo_20) =2.82
-print gain_20 >> Amp_Test_Optimization/simulations/output.txt
-print freq_3db_20 >> Amp_Test_Optimization/simulations/output.txt
-
-meas ac GAIN_21 find vm(vo_21) at=10
-meas ac freq_3db_21 when vm(vo_21) =2.82
-print gain_21 >> Amp_Test_Optimization/simulations/output.txt
-print freq_3db_21 >> Amp_Test_Optimization/simulations/output.txt
-
-meas ac GAIN_22 find vm(vo_22) at=10
-meas ac freq_3db_22 when vm(vo_22) =2.82
-print gain_22 >> Amp_Test_Optimization/simulations/output.txt
-print freq_3db_22 >> Amp_Test_Optimization/simulations/output.txt
-
-meas ac GAIN_23 find vm(vo_23) at=10
-meas ac freq_3db_23 when vm(vo_23) =2.82
-print gain_23 >> Amp_Test_Optimization/simulations/output.txt
-print freq_3db_23 >> Amp_Test_Optimization/simulations/output.txt
-
-meas ac GAIN_24 find vm(vo_24) at=10
-meas ac freq_3db_24 when vm(vo_24) =2.82
-print gain_24 >> Amp_Test_Optimization/simulations/output.txt
-print freq_3db_24 >> Amp_Test_Optimization/simulations/output.txt
-
-meas ac GAIN_25 find vm(vo_25) at=10
-meas ac freq_3db_25 when vm(vo_25) =2.82
-print gain_25 >> Amp_Test_Optimization/simulations/output.txt
-print freq_3db_25 >> Amp_Test_Optimization/simulations/output.txt
-
+** Measure gain and 3dB bandwidth
+meas ac GAIN find vm(vo) at=10
+meas ac freq_3db when vm(vo) =2.82
+print gain > Amp_Test_Optimization/simulations/output.txt
+print freq_3db >> Amp_Test_Optimization/simulations/output.txt
 
 .endc
